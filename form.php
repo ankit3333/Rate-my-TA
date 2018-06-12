@@ -27,6 +27,8 @@ $result = mysqli_query($conn,$query1);
 
        $TAname = $_POST['TAname'];
 
+       $description = $_POST['description'];
+
 
        $comment = $_POST["comment"];
 
@@ -47,7 +49,7 @@ $result = mysqli_query($conn,$query1);
        $fifth=$_POST["fifth"];
 
 
-       $query = "INSERT INTO TA_Rating(course,TAname,comment,name,email,pno,first,second,third,fourth,fifth) VALUES ('$course','$TAname','$comment','$name','$email','$pno','$first','$second','$third','$fourth','$fifth')";
+       $query = "INSERT INTO TA_Rating(course,TAname,description,comment,name,email,pno,first,second,third,fourth,fifth) VALUES ('$course','$TAname','$description','$comment','$name','$email','$pno','$first','$second','$third','$fourth','$fifth')";
 
 
 

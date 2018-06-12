@@ -192,6 +192,13 @@ function confirmation(){
 
          </select>
 
+         <br>
+         <br>
+
+         <div class="form-group">
+          <label for="exampleTextarea">TA Description(Optional)</label>
+          <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your description here" name="description"></textarea>
+        </div>
       
 
       <div class="wrap">
