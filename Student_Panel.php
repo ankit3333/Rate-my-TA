@@ -115,25 +115,25 @@ form .buttons .submit:hover {background-color: #14892c;}
 
 
  <script>
-   <!-- Global Variable works  -->
-
- var works="false"
+ //global variable
+//works="true";
 function populate(s1,s2){
-  var s1 = document.getElementById(s1);
+ var s1 = document.getElementById(s1);
   var s2 = document.getElementById(s2);
   s2.innerHTML = "";
-  
-  
-if(s1.value =="Select One"|| s1.value=="|" || s2.value=="Select One" || s2.value==""){
+ /*
+ if(s1.value =="Select One"|| s1.value=="" || s2.value=="Select One" || s2.value==""){
 works="false";
 }
-
-
+*/
+ 
+ 
   if(s1.value == "CSE 116"){
     var optionArray = ["|","unknown|Unknown","nick|Nick","jay|Jay"];
   } else if(s1.value == "CSE 442"){
     var optionArray = ["|","unknown|Unknown","sean|Sean","tiffany|Tiffany"];
   }
+  
   for(var option in optionArray){
     var pair = optionArray[option].split("|");
     var newOption = document.createElement("option");
@@ -141,11 +141,18 @@ works="false";
     newOption.innerHTML = pair[1];
     s2.options.add(newOption);
   }
-  works="true";
-}
-  <!-- Checks to see if course and TA were selected  confirmation message if true, error message otherwise-->
+  }
+
+
+  <!-- Checks to see if course and TA were selected  confirmation message if true, error message otherwise not working -->
 
 function confirmation(){
+  alert("Your feedback was submitted successfully");
+    return true;
+
+  }
+/*
+  function confirmation(){
 if(works=="false"){
 alert("Please fill out all required forms");
 }
@@ -155,6 +162,7 @@ alert("Please fill out all required forms");
 
   }
 }
+  */
 
 </script>
 </head>
@@ -355,7 +363,7 @@ alert("Please fill out all required forms");
 
         <br>
 		
-		        <button type="submit" onclick="confirmation();"  class="btn btn-primary" >Submit</button>
+		         <button  type="submit" onclick="confirmation();"  class="btn btn-primary" >Submit</button>
 
 
       </form>
