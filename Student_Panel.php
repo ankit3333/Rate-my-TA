@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Rate My TA</title>
+  <title>TA Review</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -63,7 +63,6 @@ form .likert li input[type=radio] {
   top:0;
   left:50%;
   margin-left:-6px;
-
 }
 form .likert li label {width:100%;}
 form .buttons {
@@ -89,26 +88,20 @@ form .buttons .submit:hover {background-color: #14892c;}
     width: 100%;
     border-bottom: 1px solid rgba(0,0,0,0.9);
     color: white;
-
 }
-
     /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
       color: white;
       padding: 15px;
     }
-
     .dropdown-menu{
       width: 70%
       height: 30%
     }
-
-
      #myTA1, #myTA2, #myTA3, #myTA4{
       display: none;
     }
-
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
       .sidenav {
@@ -120,11 +113,22 @@ form .buttons .submit:hover {background-color: #14892c;}
   </style>
 
 
+
  <script>
+   <!-- Global Variable works  -->
+
+ var works="false"
 function populate(s1,s2){
   var s1 = document.getElementById(s1);
   var s2 = document.getElementById(s2);
   s2.innerHTML = "";
+  
+  
+if(s1.value =="Select One"|| s1.value=="|" || s2.value=="Select One" || s2.value==""){
+works="false";
+}
+
+
   if(s1.value == "CSE 116"){
     var optionArray = ["|","unknown|Unknown","nick|Nick","jay|Jay"];
   } else if(s1.value == "CSE 442"){
@@ -137,11 +141,19 @@ function populate(s1,s2){
     newOption.innerHTML = pair[1];
     s2.options.add(newOption);
   }
+  works="true";
 }
+  <!-- Checks to see if course and TA were selected  confirmation message if true, error message otherwise-->
 
 function confirmation(){
+if(works=="false"){
+alert("Please fill out all required forms");
+}
+ if(works=="true"){
   alert("Your feedback was submitted successfully");
-  return true;
+    return true;
+
+  }
 }
 
 </script>
@@ -153,7 +165,7 @@ function confirmation(){
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3 sidenav">
-      <h2>Rate My TA</h2>
+      <h2>TA Review</h2>
       <ul class="nav nav-pills nav-stacked">
     </div>
 
@@ -169,15 +181,14 @@ function confirmation(){
 
          <label>Select Course:</label>
 
-         <select id="course" name="course" onchange="populate(this.id,'TAname')">
+         <select required id="course" name="course" onchange="populate(this.id,'TAname')">
 
          <option value="">Select One</option>
 
          <option value="CSE 116">CSE 116</option>
 
          <option value="CSE 442">CSE 442</option>
-
-         </select>
+</select>
 
          <br>
          <br>
@@ -186,27 +197,26 @@ function confirmation(){
 
 
 
-         <select id="TAname" name="TAname">
+         <select required id="TAname" name="TAname" >
 
           <option value="">Select One</option>
 
          </select>
-
-         <br>
-         <br>
-
+</br>
+</br>
+      
          <div class="form-group">
-          <label for="exampleTextarea">TA Description(Optional)</label>
+          <label for="exampleTextarea">TA Description (Optional)</label>
           <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your description here" name="description"></textarea>
         </div>
       
 
       <div class="wrap">
         
-          <label class="statement">Is he/she easy to understand ?</label>
-          <ul class='likert'>
+          <label class="statement">The TA is easy to understand:</label>
+          <ul  class='likert'>
             <li>
-              <input type="radio" name="first" value="Strongly Agree">
+              <input required type="radio" name="first" value="Strongly Agree">
               <label>Strongly Agree</label>
             </li>
             <li>
@@ -224,10 +234,10 @@ function confirmation(){
             </li>
           </ul>
 
-          <label class="statement">He/She shows up on time for recitation / office hours: </label>
+          <label class="statement">The TA shows up on time for recitation / office hours: </label>
           <ul class='likert'>
             <li>
-              <input type="radio" name="second" value="Strongly Agree">
+              <input required type="radio" name="second" value="Strongly Agree">
               <label>Strongly Agree</label>
             </li>
             <li>
@@ -245,11 +255,11 @@ function confirmation(){
             </li>
           </ul>
 
-          <label class="statement">He/She answers student questions effectively:</label>
+          <label class="statement">The TA answers student questions effectively:</label>
 
           <ul class='likert'>
             <li>
-              <input type="radio" name="third" value="Strongly Agree">
+              <input required type="radio" name="third" value="Strongly Agree">
               <label>Strongly Agree</label>
             </li>
             <li>
@@ -267,15 +277,15 @@ function confirmation(){
             </li>
           </ul>
 
-          <label class="statement">He/She makes good use of class time:</label>
+          <label  class="statement">The TA makes good use of class time:</label>
 
            <ul class='likert'>
             <li>
-              <input type="radio" name="fourth" value="Strongly Agree">
+              <input required type="radio" name="fourth" value="Strongly Agree">
               <label>Strongly Agree</label>
             </li>
             <li>
-              <input type="radio" name="foruth" value="Agree">
+              <input type="radio" name="fourth" value="Agree">
               <label>Agree</label>
             </li>
 
@@ -293,7 +303,7 @@ function confirmation(){
 
           <ul class='likert'>
             <li>
-              <input type="radio" name="fifth" value="Strongly Agree">
+              <input required type="radio" name="fifth" value="Strongly Agree">
               <label>Strongly Agree</label>
             </li>
             <li>
@@ -318,34 +328,36 @@ function confirmation(){
       <br>
 
         <div class="form-group">
-          <label for="exampleTextarea">Comments</label>
-          <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your comments here" name="comment"></textarea>
+          <label for="exampleTextarea">Comments (Optional)</label>
+          <textarea  input type="text"  class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your comments here" name="comment"></textarea>
         </div>
 
         <br>
 
         <div id="div1"  class="form-group">
-          <label >Name(Optional)</label>
+          <label >Name (Optional)</label>
           <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name" name="name">
         </div>
 
         <br>
 
         <div id="div2" class="form-group">
-          <label >Email address(Optional)</label>
+          <label >Email address (Optional)</label>
           <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="email">
         </div>
 
         <br>
 
         <div id="div2" class="form-group">
-          <label >Phone Number(Optional)</label>
+          <label >Phone Number (Optional)</label>
           <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone Number" name="pno">
         </div>
 
         <br>
+		
+		        <button type="submit" onclick="confirmation();"  class="btn btn-primary" >Submit</button>
 
-        <button type="submit" class="btn btn-primary" onclick="return confirmation();">Submit</button>
+
       </form>
       <hr>
     </div>
