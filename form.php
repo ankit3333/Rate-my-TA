@@ -5,6 +5,7 @@ $username = "ankitner";
 $password = "ChangeMe";
 
 // Create connection
+
 $conn = mysqli_connect($servername, $username, $password);
 
 // Check connection
@@ -38,18 +39,10 @@ $result = mysqli_query($conn,$query1);
 
        $pno= mysqli_real_escape_string($conn, $_POST["pno"]);
 
-       $first= mysqli_real_escape_string($conn, $_POST["first"]);
-
-       $second= mysqli_real_escape_string($conn, $_POST["second"]);
-
-       $third= mysqli_real_escape_string($conn, $_POST["third"]);
-
-       $fourth= mysqli_real_escape_string($conn, $_POST["fourth"]);
-
-       $fifth= mysqli_real_escape_string($conn, $_POST["fifth"]);
+       $experience= mysqli_real_escape_string($conn, $_POST["experience"]);
 
 
-       $query = "INSERT INTO TA_Rating(course,TAname,description,comment,name,email,pno,first,second,third,fourth,fifth) VALUES (?, ?, ?, ?, ?, ? , ? , ? , ?, ?, ?, ?);";
+       $query = "INSERT INTO TA_Rating(course,TAname,description,experience,comment,name,email,pno) VALUES (?, ?, ?, ?, ?, ? , ? , ? );";
 
       $stmt= mysqli_stmt_init($conn);
       if(!mysqli_stmt_prepare($stmt, $query)){
@@ -57,7 +50,7 @@ $result = mysqli_query($conn,$query1);
 
       }
       else{
-        mysqli_stmt_bind_parm($stmt, "ssssssssssss", $course, $TAname, $description, $comment, $name, $email, $pno, $first, $second, $third, $fourth,  $fifth);
+        mysqli_stmt_bind_parm($stmt, "ssssssss", $course, $TAname, $description, $comment, $name, $email, $pno, $first, $second, $third, $fourth,  $fifth);
         mysqli_stmt_execute($stmt);
         echo "Inserted a new row in database" ;
       }
