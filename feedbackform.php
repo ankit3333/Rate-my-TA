@@ -134,9 +134,9 @@ works="false";
 }
 */
   if(s1.value == "CSE 116"){
-    var optionArray = ["|","unknown|Unknown","nick|Nick","jay|Jay"];
+    var optionArray = ["|","Not Sure|Not Sure","nick|Nick","jay|Jay"];
   } else if(s1.value == "CSE 442"){
-    var optionArray = ["|","unknown|Unknown","sean|Sean","tiffany|Tiffany"];
+    var optionArray = ["|","Not Sure|Not Sure","sean|Sean","tiffany|Tiffany"];
   }
   for(var option in optionArray){
     var pair = optionArray[option].split("|");
@@ -228,7 +228,7 @@ alert("Please fill out all required forms");
 </br>
 </br>
 Select the box if you does not know TA's name and willing to leave a descrption :  <input type="checkbox" id="myCheck"  onclick="myFunction()">
-         <div id="des" class="form-group">
+         <div id="des" style="display:none" class="form-group">
           <label for="exampleTextarea">TA Description</label>
           <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your description here" name="description"></textarea>
         </div>
