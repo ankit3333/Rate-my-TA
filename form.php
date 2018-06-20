@@ -50,7 +50,7 @@ $result = mysqli_query($conn,$query1);
 
       }
       else{
-        mysqli_stmt_bind_parm($stmt, "ssssssss", $course, $TAname, $description, $comment, $name, $email, $pno, $first, $second, $third, $fourth,  $fifth);
+        mysqli_stmt_bind_parm($stmt, "ssssssss", $course, $TAname, $description, $experience, $comment, $name, $email, $pno);
         mysqli_stmt_execute($stmt);
         echo "Inserted a new row in database" ;
       }
