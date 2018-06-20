@@ -19,22 +19,22 @@ if(!mysqli_select_db($conn,'cse442_542_2018_summer_team04_db')){
 
 
 
-       $course = mysqli_real_escape_string($conn,  $_POST['course']);
+       $course = $_POST['course'];
 
-       $TAname =  mysqli_real_escape_string($conn, $_POST['TAname']);
+       $TAname = $_POST['TAname'];
 
-       $description =  mysqli_real_escape_string($conn, $_POST['description']);
+       $description =  $_POST['description'];
 
 
-       $comment =  mysqli_real_escape_string($conn, $_POST["comment"]);
+       $comment = $_POST["comment"];
 
-       $name =  mysqli_real_escape_string($conn, $_POST["name"]);
+       $name =   $_POST["name"];
 
-       $email= mysqli_real_escape_string($conn, $_POST["email"]);
+       $email= $_POST["email"];
 
-       $pno= mysqli_real_escape_string($conn, $_POST["pno"]);
+       $pno= $_POST["pno"];
 
-       $experience= mysqli_real_escape_string($conn, $_POST["experience"]);
+       $experience= $_POST["experience"];
 
 
        $stmt = $conn->prepare("INSERT INTO TA_Rating(course,TAname,description,experience,comment,name,email,pno) VALUES (?, ?, ?, ?, ?, ? , ? , ? )");
