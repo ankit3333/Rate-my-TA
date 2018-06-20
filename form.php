@@ -41,7 +41,7 @@ if(!mysqli_select_db($conn,'cse442_542_2018_summer_team04_db')){
 
     
        $stmt->bind_param($stmt, "ssssssss", $course, $TAname, $description, $experience, $comment, $name, $email, $pno);
-       
+       $stmt->execute();
         echo "Inserted a new row in database" ;
         $stmt->close();
         $conn->close();
