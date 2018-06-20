@@ -151,7 +151,17 @@ works="false";
     s2.options.add(newOption);
   }
   }
-
+  function myFunction() {
+      var checkBox = document.getElementById("myCheck");
+      var div1 = document.getElementById("des");
+      if (checkBox.checked == true){
+        div1.style.display = "block";
+      } else {
+        div1.style.display = "none";
+      }
+      }
+     
+     
 
   <!-- Checks to see if course and TA were selected  confirmation message if true, error message otherwise not working -->
 
@@ -227,9 +237,9 @@ alert("Please fill out all required forms");
          </select>
 </br>
 </br>
-
-         <div class="form-group">
-          <label for="exampleTextarea">TA Description (Optional)</label>
+Select the box if you does not know TA's name and willing to leave a descrption :  <input type="checkbox" id="myCheck"  onclick="myFunction()">
+         <div id="des" class="form-group">
+          <label for="exampleTextarea">TA Description</label>
           <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your description here" name="description"></textarea>
         </div>
 
