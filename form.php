@@ -18,11 +18,6 @@ if(!mysqli_select_db($conn,'cse442_542_2018_summer_team04_db')){
 }
 
 
-$query1 = "SELECT  `coursenumber` FROM `coursecode`";
-
-
-$result = mysqli_query($conn,$query1);
-
 
        $course = mysqli_real_escape_string($conn,  $_POST['course']);
 
@@ -42,18 +37,14 @@ $result = mysqli_query($conn,$query1);
        $experience= mysqli_real_escape_string($conn, $_POST["experience"]);
 
 
-       $query = "INSERT INTO TA_Rating(course,TAname,description,experience,comment,name,email,pno) VALUES (?, ?, ?, ?, ?, ? , ? , ? );";
+       $stmt = $conn->prepare("INSERT INTO TA_Rating(course,TAname,description,experience,comment,name,email,pno) VALUES (?, ?, ?, ?, ?, ? , ? , ? )");
 
-      $stmt= mysqli_stmt_init($conn);
-      if(!mysqli_stmt_prepare($stmt, $query)){
-        echo "SQL Error";
-
-      }
-      else{
-        mysqli_stmt_bind_parm($stmt, "ssssssss", $course, $TAname, $description, $experience, $comment, $name, $email, $pno);
-        mysqli_stmt_execute($stmt);
+    
+       $stmt->bind_param($stmt, "ssssssss", $course, $TAname, $description, $experience, $comment, $name, $email, $pno);
+       
         echo "Inserted a new row in database" ;
-      }
+        $stmt->close();
+        $conn->close();
 
 
 
@@ -68,5 +59,5 @@ $result = mysqli_query($conn,$query1);
        // echo "Inserted a new row in database";
      // }
    
-  header("refresh:2,url=Student_Panel.php");
+  header("url=sprint2.php");
 ?>
