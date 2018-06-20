@@ -24,8 +24,6 @@
     label{
         font: 20px Arial;
     }
-
-
 /* .wrap {
   font:12px Arial, san-serif;
 } */
@@ -135,14 +133,11 @@ function populate(s1,s2){
 works="false";
 }
 */
-
-
   if(s1.value == "CSE 116"){
     var optionArray = ["|","unknown|Unknown","nick|Nick","jay|Jay"];
   } else if(s1.value == "CSE 442"){
     var optionArray = ["|","unknown|Unknown","sean|Sean","tiffany|Tiffany"];
   }
-
   for(var option in optionArray){
     var pair = optionArray[option].split("|");
     var newOption = document.createElement("option");
@@ -162,13 +157,10 @@ works="false";
       }
      
      
-
   <!-- Checks to see if course and TA were selected  confirmation message if true, error message otherwise not working -->
-
 function confirmation(){
   alert("Your feedback was submitted successfully");
     return true;
-
   }
 /*
   function confirmation(){
@@ -178,11 +170,9 @@ alert("Please fill out all required forms");
  if(works=="true"){
   alert("Your feedback was submitted successfully");
     return true;
-
   }
 }
   */
-
 </script>
 </head>
 
@@ -244,7 +234,7 @@ Select the box if you does not know TA's name and willing to leave a descrption 
         </div>
 
 
-      <div class="wrap">
+          <div class="wrap">
 
           <label class="statement">Your overall experince with TA:</label>
 
@@ -275,15 +265,15 @@ Select the box if you does not know TA's name and willing to leave a descrption 
       <br>
 
         <div class="form-group">
-          <label for="exampleTextarea">Comments</label>
-          <textarea required input type="text"  class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your comments here" name="comment"></textarea>
+          <label for="exampleCommentsArea">Comments</label>
+          <textarea required input type="text"  class="form-control" id="exampleCommentsArea"3" placeholder="Enter your comments here" name="comment"></textarea>
         </div>
 
         <br>
 
         <div id="div1"  class="form-group">
           <label >Name (Optional)</label>
-          <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Name" name="name">
+          <input type="text" class="form-control" id="exampleInputName" placeholder="Name" name="name">
         </div>
 
         <br>
@@ -297,7 +287,7 @@ Select the box if you does not know TA's name and willing to leave a descrption 
 
         <div id="div2" class="form-group">
           <label >Phone Number (Optional)</label>
-          <input type="tel" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Phone Number" name="pno">
+          <input type="tel" class="form-control" id="exampleInputPNo" aria-describedby="emailHelp" placeholder="Enter Phone Number" name="pno">
         </div>
 
         <br>
