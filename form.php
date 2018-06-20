@@ -17,45 +17,63 @@ if(!mysqli_select_db($conn,'cse442_542_2018_summer_team04_db')){
 }
 
 
+$query1 = "SELECT  `coursenumber` FROM `coursecode`";
 
 
-       $course = $_POST['course'];
-
-       $TAname = $_POST['TAname'];
-
-       $description = $_POST['description'];
+$result = mysqli_query($conn,$query1);
 
 
-       $comment = $_POST["comment"];
+       $course = mysqli_real_escape_string($conn,  $_POST['course']);
 
-       $name = $_POST["name"];
+       $TAname =  mysqli_real_escape_string($conn, $_POST['TAname']);
 
-       $email=$_POST["email"];
-
-       $pno=$_POST["pno"];
-
-      $experience=$_POST["experience"];
-
-       $query = "INSERT INTO TA_Rating(course,TAname,description,experience,comment,name,email,pno) VALUES ('$course','$TAname','$description','$experience','$comment','$name','$email','$pno')";
+       $description =  mysqli_real_escape_string($conn, $_POST['description']);
 
 
+       $comment =  mysqli_real_escape_string($conn, $_POST["comment"]);
+
+       $name =  mysqli_real_escape_string($conn, $_POST["name"]);
+
+       $email= mysqli_real_escape_string($conn, $_POST["email"]);
+
+       $pno= mysqli_real_escape_string($conn, $_POST["pno"]);
+
+       $first= mysqli_real_escape_string($conn, $_POST["first"]);
+
+       $second= mysqli_real_escape_string($conn, $_POST["second"]);
+
+       $third= mysqli_real_escape_string($conn, $_POST["third"]);
+
+       $fourth= mysqli_real_escape_string($conn, $_POST["fourth"]);
+
+       $fifth= mysqli_real_escape_string($conn, $_POST["fifth"]);
 
 
+       $query = "INSERT INTO TA_Rating(course,TAname,description,comment,name,email,pno,first,second,third,fourth,fifth) VALUES (?, ?, ?, ?, ?, ? , ? , ? , ?, ?, ?, ?);";
 
+      $stmt= mysqli_stmt_init($conn);
+      if(!mysqli_stmt_prepare($stmt, $query)){
+        echo "SQL Error";
 
-      if(!mysqli_query($conn,$query)){
-        
-        echo "Not inserted into databse";
-        
       }
       else{
-        echo "Your form was submitted successfully";
+        mysqli_stmt_bind_parm($stmt, "ssssssssssss", $course, $TAname, $description, $comment, $name, $email, $pno, $first, $second, $third, $fourth,  $fifth);
+        mysqli_stmt_execute($stmt);
+        echo "Inserted a new row in database" ;
       }
 
 
 
 
-   
-  header("url=sprint2.php");
-?>
 
+      //if(!mysqli_query($conn,$query)){
+        
+       // echo "Not inserted into databse";
+        
+      //}
+      //else{
+       // echo "Inserted a new row in database";
+     // }
+   
+  header("refresh:2,url=Student_Panel.php");
+?>
