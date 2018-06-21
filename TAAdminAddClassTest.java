@@ -10,7 +10,7 @@ public static void main(String[] args) throws InterruptedException {
 	//System.setProperty("webdriver.gecko.driver", "C:\\Users\\Terrell\\Desktop\\testing\\test\\geckodriver.exe");	//FIREFOX	
 	System.setProperty("webdriver.chrome.driver", "C:\\Users\\Terrell\\Desktop\\testing\\test\\chromedriver.exe"); //CHROME
 	
-	//WebDriver driver = new EdgeDriver();   //EDGE
+	//WebDriver driver = new EdgeDriver();   //EDGE    
 	//WebDriver driver= new FirefoxDriver(); //FIREFOX
 	WebDriver driver = new ChromeDriver(); //CHROME
 	
