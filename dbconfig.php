@@ -1,29 +1,14 @@
-  <?php
+<?php
+ //Database credentials
+ $dbHost     = 'tethys.cse.buffalo.edu';
+ $dbUsername = 'ankitner';
+ $dbPassword = 'ChangeMe';
+ $dbName     = 'cse442_542_2018_summer_team04_db';
 
- //Define your host here.
- $hostname = "tethys.cse.buffalo.edu";
+ //Connect and select the database
+ $db = new mysqli($dbHost, $dbUsername, $dbPassword, $dbName);
 
- //Define your database username here.
- $username = "ankitner";
-
- //Define your database password here.
- $password = "ChangeMe";
-
- //Define your database name here.
- $dbname = "cse442_542_2018_summer_team04_db";
-
-  $conn = mysql_connect($hostname, $username, $password);
-
-  if (!$conn)
-
-  {
-
-  die('Could not connect: ' . mysql_error());
-
-  }
-
-  mysql_select_db($dbname, $conn);
-
-
-
+ if ($db->connect_error) {
+     die("Connection failed: " . $db->connect_error);
+ }
  ?>
