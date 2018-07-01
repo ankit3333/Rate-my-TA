@@ -4,10 +4,7 @@
   session_start(); 
     include 'connection.php';
     $name = $_SESSION['username'];
-  if (!isset($_SESSION['username'])) {
-  	$_SESSION['msg'] = "You must log in first";
-  	header('location: login.php');
-  }
+  
   if (isset($_GET['logout'])) {
   	session_destroy();
   	unset($_SESSION['username']);
@@ -28,26 +25,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<title>Home Page</title>
+	
 </head>
 <body>
 
 	<div class="container">
 		<div class="row">
-  	
-  	<?php if (isset($_SESSION['success'])) : ?>
-      	<h3>
-          <?php 
-          	echo $_SESSION['success']; 
-          	unset($_SESSION['success']);
-          ?>
-      	</h3>
-     
-  	<?php endif ?>
-
-    
-
-
 
 
 <br>
