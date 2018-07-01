@@ -67,6 +67,8 @@ Course Code:
 
 	<?php
 
+  $coursecode = $row["coursecode"];
+
 	if(mysqli_num_rows($result) > 0)
 	{
 			while($row = mysqli_fetch_array($result))
@@ -79,18 +81,23 @@ Course Code:
 
 <br>
 <br>
-TA name:
 <br>
+
+
+<div class="table-responsive">
+	<table class="table table-bordered">
+		<tr>
+			<th width="70%">TA Name</th>
+		</tr>
 	<?php
 
 	if(mysqli_num_rows($res)>0){
 		while($row1=mysqli_fetch_array($res)){
-	?>
 
-	<a href=""><?php echo $row1["TAname"]; ?><br></a>
+  $coursecode = $row1["coursecode"];
 
-
-	<?php	
+		$TAname = $row1["TAname"];
+	echo '<tr><td><a href="select.php?TAname='.$TAname.'&coursecode='.$coursecode.'">'.$TAname.'</a><br /></td></tr>';
 		}
 		}else{
 			 echo "No rows to display";
@@ -100,6 +107,7 @@ TA name:
 </table>
 </div>
 </div>
-
+</div>
 </body>
 </html>
+
