@@ -40,7 +40,7 @@
     $rowCount = $query->num_rows;
     ?>
     <select id="country">
-        <option value="">Select Country</option>
+        <option value="">Select Professor</option>
         <?php
         if($rowCount > 0){
             while($row = $query->fetch_assoc()){
@@ -53,7 +53,7 @@
     </select>
 
     <select id="state">
-        <option value="">Select country first</option>
+        <option value="">Select Professor First</option>
     </select>
 
 
