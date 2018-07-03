@@ -1,6 +1,6 @@
-<?php 
-  
-  session_start(); 
+<?php
+
+  session_start();
 
     include 'connection.php';
 
@@ -40,30 +40,71 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<title>Home Page</title>
+
+  <style type="text/css">
+
+    .container{
+          margin-top: 100px;
+        }
+
+    .sidenav {
+      background-color: rgba(0,91,187,0.9);
+      width: 100%;
+      border-bottom: 1px solid rgba(0,0,0,0.9);
+      color: white;
+      position:fixed;
+      top:0;
+    }
+    #name{
+      color: white;
+    }
+    #Logout-Btn{
+
+    }
+  </style>
 </head>
 <body>
 
+<div class="container-fluid sidenav">
+  <div class="cointainer">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <a class="navbar-brand" href="#"><h2 id = "name">TA Review</h2></a>
+
+      <button type="button" class="btn btn-info btn-md pull-right" id = "Logout-Btn">
+        <a href="index.php?logout='1'" style="color: blue;">  <span class="glyphicon glyphicon-user"></span> Logout</a>
+
+    </button>
+    </nav>
+
+  </div>
+
+</div>
+
+
 	<div class="container">
 		<div class="row">
-  	
+
   	<?php if (isset($_SESSION['success'])) : ?>
       	<h3>
-          <?php 
-          	echo $_SESSION['success']; 
+          <?php
+          	echo $_SESSION['success'];
           	unset($_SESSION['success']);
           ?>
       	</h3>
-     
+
   	<?php endif ?>
 
-    
+
     <?php  if (isset($_SESSION['username'])) : ?>
-    	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-    	<p> <a href="index.php?logout='1'" style="color: blue;">logout</a> </p>
+    	<h2>Welcome <strong><?php echo $_SESSION['username']; ?></strong></h2>
+
     <?php endif ?>
 
+<h3>Course Code:</h3>
 
-Course Code:
+<h4>
+
+
 
 	<?php
 
@@ -78,10 +119,9 @@ Course Code:
 	}
 }
 	?>
+</h4>
+<hr>
 
-<br>
-<br>
-<br>
 
 
 <div class="table-responsive">
@@ -110,4 +150,3 @@ Course Code:
 </div>
 </body>
 </html>
-
