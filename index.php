@@ -68,7 +68,7 @@
 <div class="container-fluid sidenav">
   <div class="cointainer">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-     <a class="navbar-brand" href="#"><h2 id = "name">TA Review</h2></a>
+     <a class="navbar-brand" href="index.php"><h2 id = "name">TA Review</h2></a>
 
       <button type="button" class="btn btn-info btn-md pull-right" id = "Logout-Btn">
         <a href="index.php?logout='1'" style="color: blue;">  <span class="glyphicon glyphicon-user"></span> Logout</a>
