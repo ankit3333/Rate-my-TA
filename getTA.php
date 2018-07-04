@@ -1,6 +1,6 @@
 <?php
 
-//GETS TA INFO FROM TA DATABASE USING COURSECODE
+//GETS TA INFO FROM TA_Rating DATABASE USING COURSECODE
 if(isset($_GET["Courses"]))
 {
 	require "opendb.php";
@@ -11,8 +11,8 @@ $Courses=$_GET["Courses"];
 
 
 //TA DATABASE	
-$query="SELECT TA.TAname FROM TA 
-WHERE TA.coursecode LIKE '{$Courses}'";
+$query="SELECT DISTINCT TA_Rating.TAname FROM TA_Rating 
+WHERE TA_Rating.coursecode LIKE '{$Courses}'";
 
 //TAs DATABASE
 /*
