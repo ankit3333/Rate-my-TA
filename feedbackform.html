@@ -11,7 +11,7 @@
 
 
   <!-- Linking custom JS file for this page  -->
-  <script src ="Student_Panel.js" type="text/javascript"></script>
+  <!-- <script src ="Student_Panel.js" type="text/javascript"></script> -->
 
   <!-- Google recaptcha -->
   <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -119,20 +119,36 @@ form .buttons .submit:hover {background-color: #14892c;}
     }
   </style>
 
+  <script type="text/javascript">
+  // function myFunction() {
+  //     var checkBox = document.getElementById("myCheck");
+  //     var div1 = document.getElementById("des");
+  //     if (checkBox.checked == true){
+  //       div1.style.display = "block";
+  //     } else {
+  //       div1.style.display = "none";
+  //     }
+  //     }
+  //
+  //   $( document ).ready(function() {
+  //     console.log( "ready!" );
+  //
+  //   });
 
+  function showDes(value) {
 
- <script>
-  function myFunction() {
-      var checkBox = document.getElementById("myCheck");
       var div1 = document.getElementById("des");
-      if (checkBox.checked == true){
+      if(value == "unknown"){
+
         div1.style.display = "block";
-      } else {
+
+      }
+      else {
         div1.style.display = "none";
       }
-      }
+  }
+  </script>
 
-</script>
 </head>
 
 
@@ -146,10 +162,7 @@ form .buttons .submit:hover {background-color: #14892c;}
 
 <div class="container" style="padding-left: 10%">
   <div class="row content">
-    <!-- <div class="col-sm-3 sidenav">
-      <h2>TA Review</h2>
-      <ul class="nav nav-pills nav-stacked">
-    </div> -->
+
 
 
 
@@ -163,9 +176,7 @@ form .buttons .submit:hover {background-color: #14892c;}
 
          <label>Select Course:</label>
 
-         <select required id="course" name="course" >
-
-</select>
+         <select required id="course" name="course" ><option value="" disabled selected>Select your Course</option></select>
 
          <br>
          <br>
@@ -174,17 +185,15 @@ form .buttons .submit:hover {background-color: #14892c;}
 
 
 
-         <select required id="TAname" name="TAname"  >
+         <select required id="TAname" name="TAname" onchange="showDes(this.value)"><option value="" disabled selected>Select your option</option>
 
          </select>
-</br>
-</br>
-Select the box if you does not know TA's name and willing to leave a descrption :  <input type="checkbox" id="myCheck" onclick="myFunction()" >
+
 <br>
 <br>
          <div id="des" style="display:none" class="form-group">
           <label for="exampleTextarea">TA Description</label>
-          <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Enter your description here" name="description"></textarea>
+          <textarea class="form-control" id="exampleTextarea" rows="3" placeholder="Ex. 8am Recitation, curly brown hair, and tall" name="description"></textarea>
         </div>
 
 
@@ -195,24 +204,25 @@ Select the box if you does not know TA's name and willing to leave a descrption 
           <ul class='likert'>
             <li>
               <input required type="radio" name="experience" value="Excellent">
-              <label class="rate">Excellent</label>
+              <label class="rate">Good</label>
             </li>
             <li>
               <input required type="radio" name="experience" value="Good">
-              <label class="rate">Good</label>
+              <label class="rate">Fair</label>
             </li>
 
             <li>
               <input required type="radio" name="experience" value="Fair">
-              <label class="rate">Fair</label>
+              <label class="rate">Poor</label>
             </li>
             <li>
               <input required type="radio" name="experience" value="Poor">
-              <label class="rate">Poor</label>
+              <label class="rate">Horrible</label>
             </li>
           </ul>
           <hr>
       </div>
+      
 
 
 
