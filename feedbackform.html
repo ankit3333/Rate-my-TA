@@ -131,13 +131,13 @@ form .buttons .submit:hover {background-color: #14892c;}
   //   });
 
   function showDes(value) {
+    var div1 = document.getElementById("des");
+    if(value == "unknown"){
 
-      var div1 = document.getElementById("des");
-      if(value == "unknown"){
+      div1.style.display = "block";
 
-        div1.style.display = "block";
+    }
 
-      }
       else {
         div1.style.display = "none";
       }
