@@ -44,6 +44,8 @@ if(isset($_POST['register'])){
 		array_push($errors, "Course code is required");
 	}
 
+
+/*
 	$user_check_query = "SELECT * FROM users WHERE username='$username' LIMIT 1";
 
 	  $result = mysqli_query($conn, $user_check_query);
@@ -55,7 +57,9 @@ if(isset($_POST['register'])){
 	    }
 	  }
 
+*/
 
+	  
 	if(count($errors) == 0){
 
 		$password = md5(md5($password));
@@ -95,7 +99,7 @@ if(isset($_POST['login'])){
 		$query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
 		$res = mysqli_query($conn,$query);
 
-		if(mysqli_num_rows($res) == 1){
+		if(mysqli_num_rows($res) > 0){
 
 		$_SESSION['username'] = $username;
 		$_SESSION['success'] = "You have logged in successfully!";
